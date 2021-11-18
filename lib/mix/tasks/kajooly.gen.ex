@@ -64,10 +64,10 @@ defmodule Mix.Tasks.Kajooly.Gen do
   defp files_to_be_generated(attr1, attr2) do
     app_dir = File.cwd!()
     app_name = Path.basename(app_dir)
-    file_path = if File.exists?(Path.join([app_dir, "lib", app_name, "#{attr1}.ex"])) do
-      Path.join([app_dir, "lib", app_name, "#{attr1}.ex"])
+    file_path = if File.exists?(Path.join([app_dir, "lib", app_name, "#{attr1}"])) do
+      Path.join([app_dir, "lib", app_name, "#{attr2}.ex"])
     else
-      with :ok <- File.mkdir_p(Path.dirname(Path.join([app_dir, "lib", app_name, "#{attr2}.ex"]))) do
+      with :ok <- File.mkdir_p(Path.dirname(Path.join([app_dir, "lib", app_name, "#{attr1}"]))) do
         Path.join([app_dir, "lib", app_name, "#{attr2}.ex"])
       end
     end
