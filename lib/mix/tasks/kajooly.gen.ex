@@ -7,7 +7,6 @@ defmodule Mix.Tasks.Kajooly.Gen do
   use Mix.Task
   @switches [hexagonal: :string]
   def run(args) do
-    IO.inspect(args)
 
     if Mix.Project.umbrella?() do
       Mix.raise("mix kajooly.Generate can only be run inside an application directory")
