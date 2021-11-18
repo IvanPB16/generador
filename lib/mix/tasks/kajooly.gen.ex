@@ -17,7 +17,7 @@ defmodule Mix.Tasks.Kajooly.Gen do
 
     IO.inspect(format, label: "Este es el formato")
 
-    Mix.Kajooly.ensure_phoenix_is_loaded!("torch.gen.html")
+    Mix.Kajooly.ensure_phoenix_is_loaded!("kajooly.gen")
 
     Mix.shell().info("""
       Generador Kajooly

@@ -2,16 +2,20 @@ defmodule Mix.Kajooly do
   alias Generador.Config
 
   def parse_config!(_task, args) do
+    IO.inspect args
     {opts, _, _} = OptionParser.parse(args, switches: [format: :string, app: :string])
-
+    IO.inspect opts
+    IO.inspect Config.template_format()
     format = convert_format(opts[:format] || Config.template_format())
     otp_app = opts[:app] || Config.otp_app()
+
+    IO.inspect format
 
     unless otp_app do
       Mix.raise("""
         No OTP application specified
         You need to specify an OTP app to generate files within.
-        config :kajooly,
+        config :generador,
         otp_app: my_app
       """)
     end
@@ -21,7 +25,7 @@ defmodule Mix.Kajooly do
         Template format is invalid: #{inspect(format)}. Either configure it as
         shown below or pass it via the `--format` option.
 
-          config :kajooly,
+          config :generador,
           template_format: eex
 
         Supported formats: eex
