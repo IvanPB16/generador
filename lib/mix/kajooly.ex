@@ -15,7 +15,7 @@ defmodule Mix.Kajooly do
       """)
     end
 
-    unless format in ["eex"] do
+    unless format in ["eex", "leex"] do
       Mix.raise("""
         Template format is invalid: #{inspect(format)}. Either configure it as
         shown below or pass it via the `--format` option.
