@@ -30,9 +30,8 @@ defmodule Mix.Kajooly do
 
         Supported formats: eex
       """)
-
-      %{otp_app: otp_app, format: format}
     end
+    %{otp_app: otp_app, format: format}
   end
 
   def ensure_phoenix_is_loaded!(mix_task \\ "task") do
