@@ -2,14 +2,9 @@ defmodule Mix.Kajooly do
   alias Generador.Config
 
   def parse_config!(_task, args) do
-    IO.inspect args
     {opts, _, _} = OptionParser.parse(args, switches: [format: :string, app: :string])
-    IO.inspect opts
-    IO.inspect Config.template_format()
     format = convert_format(opts[:format] || Config.template_format())
     otp_app = opts[:app] || Config.otp_app()
-
-    IO.inspect format
 
     unless otp_app do
       Mix.raise("""
