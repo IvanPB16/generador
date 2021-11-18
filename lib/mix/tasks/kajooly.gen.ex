@@ -5,7 +5,7 @@ defmodule Mix.Tasks.Kajooly.Gen do
   @shortdoc "Generador kajooly"
 
   use Mix.Task
-
+  @switches [hexagonal: :string]
   def run(args) do
     IO.inspect(args)
 
